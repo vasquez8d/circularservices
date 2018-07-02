@@ -2,7 +2,7 @@
   "name": "circular-services",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "Servicios para la plataforma Circular.pe",
   "keywords": [],
   "dependencies": {
     "ejs": "2.3.4",
@@ -19,9 +19,11 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
+    "jsonwebtoken": "^8.3.0",
     "rc": "1.0.1",
     "sails": "~0.12.14",
-    "sails-disk": "~0.10.9"
+    "sails-disk": "~0.10.9",
+    "sails-postgresql": "^0.11.4"
   },
   "scripts": {
     "debug": "node debug app.js",
