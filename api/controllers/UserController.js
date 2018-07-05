@@ -47,4 +47,43 @@ module.exports = {
             res.json(dataResponse);
         });
     },
+    tokeninfo: function (req, res) {
+      var dataResponse = {
+        data_result: "",
+        res_service: "",
+        des_error: ""
+      };
+      var dataToken = req.headers.authorization;
+      var jwtKey = sails.config.values.jwtkey;
+      jwt.verify(dataToken, jwtKey, function (err, decoded) {
+        if (err) {
+          dataResponse.res_service = "401 unauthorized";
+          dataResponse.des_error = err;
+          res.json(dataResponse);
+        } else {
+          var userDecrypt = decoded;
+          User.find({
+              user_mail: userDecrypt.user,
+              est_reg: 1
+            }, {
+              select: ['user_id', 'user_mail', 'rol_id', 'user_pri_nom']
+            })
+            .then(function (response) {
+              if (response.length > 0) {
+                dataResponse.data_result = response[0];
+                dataResponse.res_service = "ok";
+                res.json(dataResponse);
+              } else {
+                dataResponse.res_service = "No existen datos.";
+                res.json(dataResponse);
+              }
+            })
+            .catch(function (err) {
+              dataResponse.res_service = "Error obteniendo el detalle de un usuario.";
+              dataResponse.des_error = err;
+              res.json(dataResponse);
+            });
+        }
+      });
+    },
 };

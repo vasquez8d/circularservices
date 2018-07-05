@@ -31,4 +31,11 @@ module.exports.routes = {
       origin: '*'
     }
   },
+  'post /user/tokeninfo': {
+    controller: 'UserController',
+    action: 'tokeninfo',
+    cors: {
+      origin: '*'
+    }
+  },
 };
