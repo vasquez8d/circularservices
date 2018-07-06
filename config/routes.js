@@ -38,4 +38,15 @@ module.exports.routes = {
       origin: '*'
     }
   },
+
+  /*********************
+   * routes Payment    *
+   *********************/  
+  'post /payment/create':{
+    controller: 'PaymentController',
+    action: 'create',
+    cors: {
+      origin: '*'
+    }
+  },
 };

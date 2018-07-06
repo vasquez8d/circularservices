@@ -17,7 +17,10 @@ module.exports = {
     paym_mont: 'decimal',
     paym_card: 'string',
     paym_card_name: 'string',
-    paym_status: 'string',
+    paym_status: {
+      type: 'string',
+      defaultsTo: '0'
+    },
     paym_phone: 'string',
     paym_mail: 'string',
     paym_ubg_dst: 'string',
@@ -29,7 +32,7 @@ module.exports = {
       defaultsTo: 1
     },
     fec_reg: {
-      type: 'datetime',
+      type: 'string',
       defaultsTo: function () {
         return new Date();
       }
