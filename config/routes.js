@@ -49,4 +49,11 @@ module.exports.routes = {
       origin: '*'
     }
   },
+  'post /payment/details/:paym_id': {
+    controller: 'PaymentController',
+    action: 'details',
+    cors: {
+      origin: '*'
+    }
+  },  
 };
